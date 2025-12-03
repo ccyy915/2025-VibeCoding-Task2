@@ -19,8 +19,8 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.6;
-      background-color: #0d1117; /* 深色背景 */
-      color: #e6e6e6; /* 淺色文字 */
+      background-color: #0d1117;
+      color: #e6e6e6;
     }
 
     img {
@@ -56,7 +56,6 @@
       color: #9ecbff;
     }
 
-    /* header / nav */
     .site-header {
       position: sticky;
       top: 0;
@@ -122,8 +121,48 @@
        CSS:ABOUT（About 區）
     -------------------------------------------------- */
     /* CSS:ABOUT-START */
-    .section-about p {
-      max-width: 700px;
+    .about-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+    }
+
+    .about-list {
+      margin: 1rem 0 1.5rem;
+      padding-left: 1.2rem;
+    }
+
+    .about-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .about-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      background-color: #1f6feb;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #388bfd;
+    }
+
+    .about-photo {
+      max-width: 420px;
+      border-radius: 12px;
+      overflow: hidden;
     }
     /* CSS:ABOUT-END */
 
@@ -170,11 +209,22 @@
         font-size: 2.5rem;
       }
 
-      .section-about .container,
-      .section-projects .container {
+      .section-about .container {
         display: flex;
         gap: 2rem;
         align-items: center;
+      }
+
+      .about-wrapper {
+        flex-direction: row;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-photo {
+        flex: 1;
       }
 
       .hero-image {
@@ -188,9 +238,6 @@
 <body>
   <div class="page">
 
-    <!-- ============================ -->
-    <!-- Header -->
-    <!-- ============================ -->
     <header class="site-header">
       <nav class="nav">
         <div class="nav-logo">Your Name · Frontend Dev</div>
@@ -204,9 +251,6 @@
       </nav>
     </header>
 
-    <!-- ============================ -->
-    <!-- Main -->
-    <!-- ============================ -->
     <main>
 
       <!-- SECTION:HERO-START -->
@@ -229,8 +273,33 @@
       <!-- SECTION:ABOUT-START -->
       <section id="about" class="section section-about" aria-labelledby="about-heading">
         <div class="container">
-          <h2 id="about-heading" class="section-title">關於我（之後會用 Section SDD 替換）</h2>
-          <p>這裡是 About 區的占位內容。未來會用 Section SDD 產生正式的個人介紹區塊。屆時請把新的 section 程式碼「整段」貼在這兩個註解之間，完全覆蓋目前這一區。</p>
+          <div class="about-wrapper">
+
+            <div class="about-text">
+              <h2 id="about-heading" class="section-title">關於我</h2>
+
+              <p>我是一名專注於前端開發、教學與自由接案的工程師，主要使用的技能包含 HTML、CSS、JavaScript，以及現代前端框架。致力於打造乾淨、易讀、可維護的介面。</p>
+
+              <p>同時我重視溝通，喜歡把複雜的概念講清楚，也享受教學與分享的過程。做事風格偏向有條理、透明且務實。</p>
+
+              <ul class="about-list">
+                <li>協助規劃前端架構與最佳化使用者體驗</li>
+                <li>提供前端教學、程式碼檢視與技術諮詢</li>
+                <li>協作跨領域團隊，確保專案穩定交付</li>
+              </ul>
+
+              <div class="about-actions">
+                <a href="#projects" class="btn">查看作品集</a>
+                <a href="#contact" class="btn">聯絡我</a>
+              </div>
+            </div>
+
+            <div class="about-photo">
+              <img src="https://source.unsplash.com/800x600/?programmer,coding"
+                   alt="正在撰寫程式碼的工程師示意照片" loading="lazy">
+            </div>
+
+          </div>
         </div>
       </section>
       <!-- SECTION:ABOUT-END -->
@@ -240,7 +309,7 @@
       <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
         <div class="container">
           <h2 id="skills-heading" class="section-title">技能（之後會用 Section SDD 替換）</h2>
-          <p>這裡是 Skills 區的占位內容。未來會用 Section SDD 生成正式的技能列表、技能標籤或能力描述。請將新區塊整段貼在兩個註解中間。</p>
+          <p>這里是 Skills 區的占位內容。未來會用 Section SDD 生成正式的技能列表、技能標籤或能力描述。請將新區塊整段貼在兩個註解中間。</p>
         </div>
       </section>
       <!-- SECTION:SKILLS-END -->
@@ -274,9 +343,6 @@
 
     </main>
 
-    <!-- ============================ -->
-    <!-- Footer -->
-    <!-- ============================ -->
     <footer class="section" style="text-align:center; border-top:1px solid #30363d;">
       <p>© 2025 Your Name · Frontend Dev. 保留所有權利。</p>
     </footer>
